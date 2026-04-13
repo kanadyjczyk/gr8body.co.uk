@@ -1128,3 +1128,31 @@ p  { max-width: 68ch; }
   .treatments-grid { grid-template-columns: 1fr; }
   .blog-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Mobile Performance ── */
+
+/* Smaller hero bg on mobile saves ~200KB */
+@media (max-width: 768px) {
+  .hero-bg {
+    background-image: url('https://img1.wsimg.com/isteam/ip/c97bc071-057a-4ded-aca2-e8525d6f4e99/file%20(3).png/:/rs=h:600,cg:true,m');
+  }
+}
+
+/* Skip animations for users who prefer reduced motion (also Lighthouse a11y) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .fade-in { opacity: 1 !important; transform: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* Contain layout/paint for off-screen sections */
+.section.areas-section,
+.section.testimonials-section,
+section#blog,
+section#faq {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}
