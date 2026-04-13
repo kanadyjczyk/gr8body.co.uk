@@ -2,7 +2,7 @@
 
 Professional mobile massage therapy website for **GR8BODY by Anna** — serving South East London and Kent.
 
-**Live site:** [gr8body.co.uk](https://gr8body.co.uk)
+**Live site:** [gr8body.uk](https://gr8body.uk)
 
 ---
 
@@ -44,9 +44,9 @@ git push -u origin main
 
 Your site will be live at `https://YOUR_USERNAME.github.io/gr8body/` within a few minutes.
 
-### Step 4 — Connect your custom domain (gr8body.co.uk)
+### Step 4 — Connect your custom domain (gr8body.uk)
 
-1. In the Pages settings, enter `gr8body.co.uk` in the **Custom domain** field and click Save
+1. In the Pages settings, enter `gr8body.uk` in the **Custom domain** field and click Save
 2. GitHub will create a `CNAME` file in your repository automatically
 3. Log in to your domain registrar (GoDaddy, Namecheap, etc.) and update the DNS records:
 
@@ -111,8 +111,8 @@ Alternatively, replace with Netlify Forms, EmailJS, or any other form handler.
 
 ### 2. Submit your sitemap to Google Search Console
 1. Go to [search.google.com/search-console](https://search.google.com/search-console)
-2. Add your property (gr8body.co.uk)
-3. Submit `https://gr8body.co.uk/sitemap.xml`
+2. Add your property (gr8body.uk)
+3. Submit `https://gr8body.uk/sitemap.xml`
 
 ### 3. Submit to Bing Webmaster Tools
 [bing.com/webmasters](https://www.bing.com/webmasters)
@@ -168,7 +168,7 @@ Create a favicon (32×32 PNG or ICO) and add to the root directory. Then add to 
 | Business | GR8BODY – Mobile Massage Therapy by Anna |
 | Phone | 020 3411 7476 / 075 8304 5487 |
 | WhatsApp | +44 7583 045487 |
-| Email | info@gr8body.co.uk |
+| Email | info@gr8body.uk |
 | Address | The Green, Bexleyheath, DA7 5DW |
 | Hours | Mon–Sun 9:00am–8:00pm |
 | Membership | FHT, Guild of Beauty Therapists |

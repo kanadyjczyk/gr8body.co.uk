@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gr8body.co.uk/sitemap.xml
+Sitemap: https://gr8body.uk/sitemap.xml
