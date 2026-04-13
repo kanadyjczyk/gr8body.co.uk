@@ -28,12 +28,17 @@
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
   <link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
+  <link rel="preload" as="image" href="https://images.pexels.com/photos/19641835/pexels-photo-19641835.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.pexels.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap">
+
+  <!-- Fonts loaded async — avoids render-blocking and third-party cookies on page load -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400&family=Nunito+Sans:wght@400;600;700&display=optional" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400&family=Nunito+Sans:wght@400;600;700&display=optional"></noscript>
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+  <meta name="theme-color" content="#6A3DA0">
 </head>
 <body>
 
@@ -115,7 +120,7 @@
         <a href="https://wa.me/447583045487" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer" style="margin-left:12px;">WhatsApp Anna</a>
       </div>
       <div>
-        <div class="treatment-detail-image" style="border-radius:var(--radius-xl);overflow:hidden;min-height:480px;"><img src="https://images.pexels.com/photos/19641835/pexels-photo-19641835.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop" alt="Woman receiving corporate chair massage" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-xl);" loading="lazy"></div>
+        <div class="treatment-detail-image" style="border-radius:var(--radius-xl);overflow:hidden;min-height:480px;"><img src="https://images.pexels.com/photos/19641835/pexels-photo-19641835.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop" referrerpolicy="no-referrer-when-downgrade" srcset="https://images.pexels.com/photos/19641835/pexels-photo-19641835.jpeg?auto=compress&cs=tinysrgb&w=480&h=480&fit=crop 480w, https://images.pexels.com/photos/19641835/pexels-photo-19641835.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop 800w" sizes="(max-width: 768px) 480px, 800px" width="800" height="800" alt="Woman receiving corporate chair massage" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-xl);" loading="eager" fetchpriority="high"></div>
         <div class="treatment-meta-card">
           <div class="treatment-meta-row"><strong>Duration</strong> <span>15–30 minutes per person</span></div>
           <div class="treatment-meta-row"><strong>Pressure</strong> <span>Medium (adjustable)</span></div>
