@@ -227,13 +227,10 @@
         <h2 style="margin-bottom:8px;" id="section-1768720263579657974">Send a Message</h2>
         <p style="margin-bottom:40px; color:var(--muted);">Fill in the form below and I'll be in touch to confirm your appointment. For same-day requests, please call or WhatsApp instead.</p>
 
-        <!-- Web3Forms: get your free access key at web3forms.com — enter info@gr8body.co.uk and copy the key to the hidden input below -->
-        <form id="booking-form" aria-label="Massage booking enquiry form" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
-          <input type="hidden" name="subject" value="New Booking Enquiry — GR8BODY">
-          <input type="hidden" name="from_name" value="GR8BODY Website">
-          <input type="hidden" name="redirect" value="https://gr8body.uk/contact.html?sent=1">
-          <input type="checkbox" name="botcheck" style="display:none;" aria-hidden="true" tabindex="-1">
+        <!-- Formspree: submissions are sent to info@gr8body.co.uk via formspree.io/f/xlgagjqw -->
+        <form id="booking-form" aria-label="Massage booking enquiry form" action="https://formspree.io/f/xlgagjqw" method="POST">
+          <input type="hidden" name="_next" value="https://gr8body.uk/contact.html?sent=1">
+          <input type="hidden" name="_subject" value="New Booking Enquiry — GR8BODY">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your Name *</label>
