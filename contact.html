@@ -227,9 +227,8 @@
         <h2 style="margin-bottom:8px;" id="section-1768720263579657974">Send a Message</h2>
         <p style="margin-bottom:40px; color:var(--muted);">Fill in the form below and I'll be in touch to confirm your appointment. For same-day requests, please call or WhatsApp instead.</p>
 
-        <!-- Formspree: submissions are sent to info@gr8body.co.uk via formspree.io/f/xlgagjqw -->
+        <!-- Formspree AJAX: submits without leaving the page -->
         <form id="booking-form" aria-label="Massage booking enquiry form" action="https://formspree.io/f/xlgagjqw" method="POST">
-          <input type="hidden" name="_next" value="https://gr8body.uk/contact.html?sent=1">
           <input type="hidden" name="_subject" value="New Booking Enquiry — GR8BODY">
           <div class="form-row">
             <div class="form-group">
@@ -289,19 +288,53 @@
           <p style="font-size:0.8rem; color:var(--muted); margin-top:12px; text-align:center;">By submitting you agree to our <a href="privacy-policy.html" style="color:var(--green);">Privacy Policy</a>. I'll never share your details with third parties.</p>
         </form>
 
-        <!-- Success message shown after redirect -->
+        <!-- Success message (shown via JS after AJAX submit) -->
         <div id="form-success" style="display:none; background:var(--green); color:#fff; border-radius:var(--radius-md); padding:28px 32px; text-align:center; margin-top:24px;" aria-live="polite" role="status">
           <div style="font-size:2rem; margin-bottom:12px;">✅</div>
           <h3 style="color:#fff; margin-bottom:8px;">Message sent!</h3>
           <p style="color:rgba(255,255,255,0.85);">Thanks for getting in touch — I'll get back to you within a few hours. If it's urgent, WhatsApp me directly.</p>
         </div>
 
+        <!-- Error message (shown if submission fails) -->
+        <div id="form-error" style="display:none; background:#C0306A; color:#fff; border-radius:var(--radius-md); padding:20px 28px; text-align:center; margin-top:16px;" aria-live="polite" role="alert">
+          <p style="margin:0;">Something went wrong — please try again or <a href="tel:07583045487" style="color:#fff; font-weight:700;">call us directly</a>.</p>
+        </div>
+
         <script>
-          // Show success message if redirected back with ?sent=1
-          if (window.location.search.includes('sent=1')) {
-            document.getElementById('booking-form').style.display = 'none';
-            document.getElementById('form-success').style.display = 'block';
-          }
+          (function() {
+            var form    = document.getElementById('booking-form');
+            var btn     = document.getElementById('submit-btn');
+            var success = document.getElementById('form-success');
+            var error   = document.getElementById('form-error');
+
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              btn.disabled = true;
+              btn.textContent = 'Sending…';
+              error.style.display = 'none';
+
+              fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+              })
+              .then(function(res) {
+                if (res.ok) {
+                  form.style.display = 'none';
+                  success.style.display = 'block';
+                  success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                  return res.json().then(function(data) { throw data; });
+                }
+              })
+              .catch(function() {
+                btn.disabled = false;
+                btn.textContent = 'Send Enquiry →';
+                error.style.display = 'block';
+                error.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              });
+            });
+          })();
         </script>
       </div>
 
